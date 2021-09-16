@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 2
+  dificuldade: 0
 --- !u!1 &6489316277788802226
 GameObject:
   m_ObjectHideFlags: 0
