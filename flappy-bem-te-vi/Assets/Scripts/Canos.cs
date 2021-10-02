@@ -9,6 +9,7 @@ public class Canos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Realiza a movimentação dos canos na horizontal para a esquerda
         transform.position += Vector3.left * velocidade * Time.deltaTime;
     }
 }

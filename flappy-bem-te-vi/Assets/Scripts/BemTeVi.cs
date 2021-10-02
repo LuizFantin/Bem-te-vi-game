@@ -16,6 +16,7 @@ public class BemTeVi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Ao clicar no mouse, empurra o bem-te-vi para cima, dando o efeito de voo
         if(Input.GetMouseButtonDown(0)){
             rd.velocity = Vector2.up * velocidade;
         }

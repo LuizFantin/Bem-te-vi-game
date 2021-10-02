@@ -14,16 +14,23 @@ public class GeraCanos : MonoBehaviour
     void Start()
     {
         GameObject novoCano = Instantiate(cano);
+        
+        // Cria um prefab de cano numa altura aleatória
         novoCano.transform.position = transform.position + new Vector3(0, Random.Range(-altura, altura), 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Realiza a lógica de geração de canos
         if(contador > intervaloGeracao){
             GameObject novoCano = Instantiate(cano);
+
+            // Cria um prefab de cano numa altura aleatória
             novoCano.transform.position = transform.position + new Vector3(0, Random.Range(-altura, altura), 0);
-            Destroy(novoCano, 20f);
+
+            //Destrói o cano construido depois de 10 segundos
+            Destroy(novoCano, 10f);
             contador = 0;
         }
 

@@ -20,7 +20,11 @@ public class ControladorJogo : MonoBehaviour
     private bool noite = false;
     
     public void RestartGame(){
-        SceneManager.LoadScene(0); // carrega novamente a jogo
+        SceneManager.LoadScene("Principal"); // carrega novamente a jogo
+    }
+    
+    public void GoToMenu(){
+        SceneManager.LoadScene(0); // Vai para o Menu
     }
 
     void Start() {
@@ -30,6 +34,7 @@ public class ControladorJogo : MonoBehaviour
     }
 
     void Update() {
+        // Realiza o teste se está na hora de alterar entre dia e noite
         if(contadorNoite == limiteNoite){
             noite = !noite;
             contadorNoite = 0;
@@ -37,12 +42,14 @@ public class ControladorJogo : MonoBehaviour
             grito.Play();
         }
 
+        // Atualiza o recorde se a pontuação atual for maior que o recorde atual
         if(pontuacao > PlayerPrefs.GetInt("Recorde")){
             PlayerPrefs.SetInt("Recorde", pontuacao);
         }
         textoRecorde.text = "Recorde: " + PlayerPrefs.GetInt("Recorde");
 
-        if(pontuacao >= 1 && pontuacao <= 9){
+        // Bloco de condicionais para adicionar dificuldade no jogo com o passar dos pontos
+        if(pontuacao >= 5 && pontuacao <= 9){
             geraCanos.intervaloGeracao = 3.5f;
         }
 
